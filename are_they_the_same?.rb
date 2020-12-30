@@ -9,14 +9,27 @@
 
 # a = [121, 144, 19, 161, 19, 144, 19, 11] 
 # b = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
+# iterate through and map a squared array to new array a_sqrd
+# compare new array and return any matched items in b array with '&' operator
+# return true if new array sqrd values equal matched array (intersection)
+
+# def comp(array1, array2)
+#   return false if array1.empty? || array2.empty?
+#   return false if array1.nil? || array2.nil?
+#   array_1_sqrd = array1.map { |item| item**2 }
+#   matches_array = array_1_sqrd & array2
+#   matches_array == array_1_sqrd.uniq
+# end
 
 def comp(array1, array2)
-  #iterate through and map a squared array to new array a_sqrd
-  #compare new array and return any matched items in b array with '&' operator
-  #return true if new array sqrd values equal matched array (intersection)
-
-  array_1_sqrd = array1.map { |item| item ** 2 }
-  matches_array = array_1_sqrd & array2
-  matches_array == array_1_sqrd.uniq
-
+  return false if array1.nil? || array2.nil?
+  return false if array1.empty? || array2.empty?
+  a_sq = array1.map { |num| num**2 }
+  matches = a_sq.select { |num| array2.include?(num) }
+  matches.sort == array2.sort
 end
+
+a = [121, 144, 19, 161, 19, 144, 19, 11]
+b = [121, 14641, 20736, 361, 25921, 361, 20736, 361]
+
+p comp(a,b)
