@@ -38,26 +38,26 @@ def tickets(people)
 
   case people.last
   when 25
-    puts 'YES1'
+    puts 'YES'
   when 50
     if change.include?(25)
       change.delete_at((change.index 25))
-      puts 'YES2'
+      puts 'YES'
     else
-      puts 'NO3'
+      puts 'NO'
     end
   when 100
     if change.include?(25) && change.include?(50)
       change.delete_at((change.index 25))
       change.delete_at((change.index 50))
-      puts 'YES4'
+      puts 'YES'
     elsif (change.select { |bill| bill == 25 }).count >= 3
       3.times do
         change.delete_at((change.index 25))
       end
-      puts 'YES5'
+      puts 'YES'
     else
-      puts 'NO6'
+      puts 'NO'
     end
   else
     puts 'WRONG AMOUNT'
